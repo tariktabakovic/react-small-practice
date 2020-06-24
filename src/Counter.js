@@ -13,7 +13,7 @@ export default class Counter extends React.Component {
         return (
             <div>
                 {this.state.buttons.map((counter, i) =>(
-                    <CounterButton key={i} counter={counter.counter} index={i} color={counter.color} increment={this._increment}/>
+                    <CounterButton key={i} counter={counter.counter} index={i} color={counter.color} increment={this._increment} delete={this._delete}/>
                 ))}
             <button onClick={this._addButton}>Add Counter</button>
             </div>
@@ -34,6 +34,14 @@ export default class Counter extends React.Component {
         this.setState({
             buttons: [...this.state.buttons,
             {counter: 0, color: 'green'}]
+        })
+    }
+
+    _delete = (index) => {
+        const newButtons = [...this.state.buttons];
+        newButtons.splice(index, 1);
+        this.setState({
+            buttons: newButtons
         })
     }
 }
