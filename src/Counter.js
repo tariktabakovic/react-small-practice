@@ -13,7 +13,7 @@ export default class Counter extends React.Component {
         return (
             <div>
                 {this.state.buttons.map((counter, i) =>(
-                    <CounterButton key={i} counter={counter.counter} index={i} color={counter.color} increment={this._increment} delete={this._delete}/>
+                    <CounterButton key={i} counter={counter.counter} index={i} color={counter.color} increment={this._increment} deleteCounter={this._delete}/>
                 ))}
             <button onClick={this._addButton}>Add Counter</button>
             </div>
